@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: expiration-radis-depl
+spec:
+  replicas: 1
+  selector: ##what pod to find the pods
+    matchLabels:
+      app: expiration-radis
+  template:
+    metadata: ## the label that apply to the pod
+      labels:
+        app: expiration-radis
+    spec: ## spec of the pod
+      containers:
+        - name: expiration-radis
+          image: redis ##from dockerHub
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: expiration-radis-srv
+spec:
+  selector:
+    app: expiration-radis ##what pod to get access to
+  ports:
+    - name: db
+      protocol: TCP
+      port: 6379 ##radis default port
+      targetPort: 6379 ##radis default port
