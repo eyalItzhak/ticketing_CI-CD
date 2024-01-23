@@ -1,7 +1,9 @@
 name: tests-tickets
 
 on:
-  pull_request 
+  pull_request: #when pull request
+    paths:
+      - "tickets/**" #and any file inside tickets dir change , then do the job
 
 jobs:
   build:

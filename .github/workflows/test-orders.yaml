@@ -1,7 +1,9 @@
 name: tests-orders
 
 on:
-  pull_request 
+  pull_request: #when pull request
+    paths:
+      - "orders/**" #and any file inside orders dir change , then do the job
 
 jobs:
   build:

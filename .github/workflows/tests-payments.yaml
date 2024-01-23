@@ -1,7 +1,9 @@
 name: tests-payments
 
 on:
-  pull_request 
+  pull_request: #when pull request
+    paths:
+      - "payments/**" #and any file inside payments dir change , then do the job
 
 jobs:
   build:

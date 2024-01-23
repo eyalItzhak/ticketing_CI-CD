@@ -1,7 +1,9 @@
 name: tests-auth
 
 on:
-  pull_request 
+  pull_request: #when pull request
+    paths:
+      - "auth/**" #and any file inside auth dir change , then do the job
 
 jobs:
   build:
